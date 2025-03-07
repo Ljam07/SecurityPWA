@@ -1,0 +1,5 @@
+SQL injection in user_management.py
+    - The code is not parameterised within a string, 
+        therefore meaning that a promp such as this can allow malicious entry: ' OR '1' = '1
+
+    - The use of parameterised code can prevent injection and illegal entry: using "?" instead of fString.
