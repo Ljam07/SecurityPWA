@@ -3,3 +3,26 @@ SQL injection in user_management.py
         therefore meaning that a promp such as this can allow malicious entry: ' OR '1' = '1
 
     - The use of parameterised code can prevent injection and illegal entry: using "?" instead of fString.
+
+Password Encryption in user_management.py
+    - The password was being inserted into the database as a raw string, 
+        allowing dangerous data leaks if discovered
+    
+    - Using a password hash generator you can ensure security if the password is unable to be broken
+
+Cross-Site Scripting
+    - Allows the malicious user to input code into feedback in javascript form, allowing execution that
+        can harm the application
+
+    - Sanitise the input, and dont allow
+
+Race Conditions
+    - Allows the malicious user to do an action multiple times with one action due to the threads doing
+        the same thing without knowledge that one is already doing it.
+    
+    - Lock threads to syncronise the actions to ensure only one completes the action at a time.
+
+Invalid Forwarding
+    - Allows the user to access pages that shouldn't be allowed to be access by just inputting 
+        the target url
+    - Ensure that checks are made that you are logged in before allowing access to the page
